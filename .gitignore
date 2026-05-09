@@ -162,3 +162,5 @@ dist-ssr
 *.sln
 *.sw?
 >>>>>>> 4ad67f1 (chore: installed gh-pages, eslint, react-router,  tailwindcss.)
+
+.env

@@ -10,4 +10,13 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
+  server: {
+    proxy: {
+      "/notion-api": {
+        target: "https://api.notion.com/v1",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/notion-api/, ""),
+      },
+    },
+  },
 });
