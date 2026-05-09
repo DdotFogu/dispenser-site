@@ -8,7 +8,8 @@ const Navbar = ({}: NavbarProps) => {
       <span
         className="
         w-full h-fit
-        flex flex-row
+        flex flex-col
+        sm:flex-row
         "
       >
         <h1 className="text-text-primary font-bold">
@@ -17,7 +18,7 @@ const Navbar = ({}: NavbarProps) => {
 
         <div
           className="
-          w-fit h-fit ml-auto
+          w-fit h-fit sm:ml-auto
           flex flex-row gap-5
           "
         >

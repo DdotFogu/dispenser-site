@@ -8,6 +8,7 @@ const ArticleLink = ({ title, onClick }: LinkProps) => {
     <button
       onClick={onClick}
       className="
+        whitespace-nowrap
         text-subtle font-light 
         transition-colors duration-200 hover:text-text-primary
         cursor-pointer
