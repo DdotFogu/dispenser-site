@@ -29,7 +29,7 @@ export const ArticleProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [articles, setArticles] = useState<ArticleClass[]>([
+  const [articles] = useState<ArticleClass[]>([
     new ArticleClass([
       new Block(BlockType.Title, "Lorem Ispum"),
       new Block(
