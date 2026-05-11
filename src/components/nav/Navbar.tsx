@@ -1,8 +1,12 @@
 import { Link } from "react-router";
+import { welcome, about } from "../../types/article.ts";
+import { useArticlesUpdate } from "../../context/ArticleContext.tsx";
 
 type NavbarProps = {};
 
 const Navbar = ({}: NavbarProps) => {
+  const { selectArticle } = useArticlesUpdate();
+
   return (
     <>
       <span
@@ -22,8 +26,8 @@ const Navbar = ({}: NavbarProps) => {
           flex flex-row gap-5
           "
         >
-          <NavbarButton title="Home" />
-          <NavbarButton title="About" to="/about" />
+          <NavbarButton title="Home" onClick={() => selectArticle(welcome)} />
+          <NavbarButton title="About" onClick={() => selectArticle(about)} />
         </div>
       </span>
     </>
@@ -33,9 +37,10 @@ const Navbar = ({}: NavbarProps) => {
 type ButtonProps = {
   title: string;
   to?: string;
+  onClick?: () => void;
 };
 
-const NavbarButton = ({ title, to = "/" }: ButtonProps) => {
+const NavbarButton = ({ title, to = "/", onClick }: ButtonProps) => {
   return (
     <Link to={to}>
       <span
@@ -43,6 +48,7 @@ const NavbarButton = ({ title, to = "/" }: ButtonProps) => {
         text-subtle font-semibold 
         transition-colors duration-200 hover:text-text-primary active:text-accent-active
         "
+        onClick={() => (onClick ? onClick() : undefined)}
       >
         {title}
       </span>
